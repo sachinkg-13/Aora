@@ -123,9 +123,12 @@ Aora delivers a seamless video sharing experience where users can sign up, log i
       <img src="https://cloud.appwrite.io/v1/storage/buckets/66f56630002ccbb5410b/files/67db1aa700322a411925/view?project=66f562d800086cf79ade&mode=admin" alt="Sign In" style="max-width:300px;"/>
     </td>
   </tr>
-  <tr></tr>
-    <td align="center" colspan="2">
+  <tr>
+    <td align="center">
       <img src="https://cloud.appwrite.io/v1/storage/buckets/66f56630002ccbb5410b/files/67db1abb000f21a10eab/view?project=66f562d800086cf79ade&mode=admin" alt="Sign Up" style="max-width:300px;"/>
+    </td>
+    <td align="center">
+      <!-- empty cell -->
     </td>
   </tr>
 </table>
