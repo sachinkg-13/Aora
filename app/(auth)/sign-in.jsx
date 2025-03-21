@@ -27,7 +27,9 @@ const SignIn = () => {
 
     try {
       console.log("Loogin hone wala h ")
+
       await signIn(form.email, form.password);
+
       const result = await getCurrentUser();
       setUser(result);
       console.log(result)

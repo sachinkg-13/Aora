@@ -8,7 +8,11 @@ import { useGlobalContext } from "../../context/GlobalProvider";
 
 const TabIcon = ({ icon, color, name, focused }) => {
   return (
-    <View className="flex items-center justify-center gap-2">
+    <View
+      className="min-w-[112px] min-h-[84px] flex-1 items-center justify-center gap-2 mt-8
+    "
+      style={{ opacity: focused ? 1 : 0.5 }}
+    >
       <Image
         source={icon}
         resizeMode="contain"
@@ -37,9 +41,15 @@ const TabLayout = () => {
           tabBarActiveTintColor: "#FFA001",
           tabBarInactiveTintColor: "#CDCDE0",
           tabBarShowLabel: false,
+          tabBarItemStyle: {
+            width: "100%",
+            height: "100%",
+            justifyContent: "center",
+            alignItems: "center",
+          },
           tabBarStyle: {
             backgroundColor: "#161622",
-            borderTopWidth: 1,
+            borderTopWidth: 0.4,
             borderTopColor: "#232533",
             height: 84,
           },
@@ -94,7 +104,7 @@ const TabLayout = () => {
         <Tabs.Screen
           name="profile"
           options={{
-            title: "Profile",
+          title: "Profile",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon

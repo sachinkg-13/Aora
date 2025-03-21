@@ -10,6 +10,7 @@ import { Text, View } from "react-native";
 SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
+  
   const [fontsLoaded, error] = useFonts({
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
     "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
@@ -47,9 +48,6 @@ const RootLayout = () => {
         <Stack.Screen name="search/[query]" options={{ headerShown: false }} />
       </Stack>
     </GlobalProvider>
-    // <View>
-    //   <Text>Helo!!</Text>
-    // </View>
   );
 };
 
