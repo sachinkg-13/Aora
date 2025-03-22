@@ -3,6 +3,10 @@ import { ResizeMode, Video } from "expo-av";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import { icons } from "../constants";
+import EditIcon from "./EditIcon";
+import HeartIcon from "./HeartIcon";
+import { useGlobalContext } from "../context/GlobalProvider";
+
 const VideoCard = ({
   title,
   creator,
@@ -10,9 +14,25 @@ const VideoCard = ({
   thumbnail,
   video,
   likedBy,
+  creatorId,
 }) => {
   const [play, setPlay] = useState(false);
- 
+  const { user } = useGlobalContext();
+  const userId=user.accountId
+
+  const [isLiked, setIsLiked] = useState(likedBy.includes(userId));
+
+  const handleLike = () => {
+    if (isLiked) {
+      // Remove like
+      setIsLiked(false);
+      // Update likedBy array accordingly
+    } else {
+      // Add like
+      setIsLiked(true);
+      // Update likedBy array accordingly
+    }
+  };
 
   return (
     <View
@@ -44,6 +64,10 @@ const VideoCard = ({
             </Text>
           </View>
         </View>
+
+        <TouchableOpacity className="pt-2">
+          {<EditIcon size={20} color="#FFA001" />}
+        </TouchableOpacity>
       </View>
 
       {play ? (
@@ -78,7 +102,23 @@ const VideoCard = ({
           />
         </TouchableOpacity>
       )}
-      
+      <View
+        className="flex flex-row justify-between items-center w-full mt-3"
+        style={{ borderWidth: 0 }}
+      >
+        <TouchableOpacity
+          className="p- flex flex-row "
+          style={{ borderWidth: 0 }}
+        >
+          <View className="flex flex-row items-center ">
+            <HeartIcon
+              size={20}
+              color={creatorId === userId ? "red" : "gray"}
+            />
+          </View>
+          <Text className="text-lg ml-1 text-white">{likedBy.length}</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
